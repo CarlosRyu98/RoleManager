@@ -1,4 +1,4 @@
-﻿namespace RoleManager.Models;
+﻿namespace RoleManager.Core.Entities;
 
 public class Quest
 {

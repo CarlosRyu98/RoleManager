@@ -1,6 +1,6 @@
-﻿namespace RoleManager.Models;
+﻿namespace RoleManager.Core.Models.Character;
 
-public class CharacterEpic: Character
+public class CharacterEpicUpdateDto : CharacterUpdateDto
 {
     [Range(1, 20, ErrorMessage = "Strength debe estar entre 1 y 20.")]
     public int? Strength { get; set; }

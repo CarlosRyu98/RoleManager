@@ -1,8 +1,8 @@
-﻿namespace RoleManager.Models;
+﻿namespace RoleManager.Core.Models.Location;
 
-public class Location
+public class LocationUpdateDto
 {
-    [Key]
+    [Required]
     public int LocationId { get; set; }
 
     [Required(ErrorMessage = "El nombre es obligatorio.")]
@@ -13,12 +13,9 @@ public class Location
     public string? Description { get; set; }
 
     public int? DomainId { get; set; } // ID del dominio al que pertenece
-    public virtual Domain? Domain { get; set; } // Navegación al dominio
 
-    public List<int>? CharacterIds { get; set; } = new List<int>(); // IDs de personajes en esta localización
-    public virtual List<Character>? Characters { get; set; } = new List<Character>(); // Navegación a personajes
+    public List<int>? CharacterIds { get; set; } = new List<int>();
 
     [Required]
-    public int? CampaignId { get; set; } // ID de la campaña a la que pertenece el location
-
+    public int? CampaignId { get; set; }
 }

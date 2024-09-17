@@ -1,8 +1,8 @@
-﻿namespace RoleManager.Models;
+﻿namespace RoleManager.Core.Models.Faction;
 
-public class Faction
+public class FactionUpdateDto
 {
-    [Key]
+    [Required]
     public int FactionId { get; set; }
 
     [Required(ErrorMessage = "El nombre de la facción es obligatorio.")]
@@ -16,9 +16,6 @@ public class Faction
     public string? Type { get; set; }
 
     public int? LeaderId { get; set; } // Referencia al personaje líder
-    public virtual Character? Leader { get; set; } // Navegación opcional a un personaje líder
-
-    public virtual ICollection<Character>? Members { get; set; } // Navegación a personajes miembros
 
     public string? Base { get; set; }
 
@@ -27,7 +24,4 @@ public class Faction
 
     [StringLength(500, ErrorMessage = "Los objetivos no deben superar los 500 caracteres.")]
     public string? Objectives { get; set; }
-
-    public virtual ICollection<Faction>? Allies { get; set; } // Navegación a facciones aliadas
-    public virtual ICollection<Faction>? Enemies { get; set; } // Navegación a facciones enemigas
 }

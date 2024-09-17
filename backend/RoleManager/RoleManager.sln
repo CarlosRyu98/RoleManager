@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager", "RoleManager.csproj", "{B4700146-7E43-4E72-BE85-B7C1358B3DC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager.Api", "..\RoleManager.Api\RoleManager.Api.csproj", "{500E7183-4BFA-46F8-AFDA-0B1322AE3EE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager.Tests", "..\RoleManager.Tests\RoleManager.Tests.csproj", "{8E20B62C-89FF-43AC-ACA7-F813316A63E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager.Core", "..\RoleManager.Core\RoleManager.Core.csproj", "{E3CD44E7-2908-4110-8CE6-CB4E213AB07F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager", "RoleManager.csproj", "{3886DC50-306E-4BB7-8EB5-04E722AF2DD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleManager.Infrastructure", "..\RoleManager.Infrastructure\RoleManager.Infrastructure.csproj", "{37D2792C-F031-4B2D-A57D-AA71EB8E7A37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4700146-7E43-4E72-BE85-B7C1358B3DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4700146-7E43-4E72-BE85-B7C1358B3DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4700146-7E43-4E72-BE85-B7C1358B3DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4700146-7E43-4E72-BE85-B7C1358B3DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{500E7183-4BFA-46F8-AFDA-0B1322AE3EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{500E7183-4BFA-46F8-AFDA-0B1322AE3EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{500E7183-4BFA-46F8-AFDA-0B1322AE3EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{500E7183-4BFA-46F8-AFDA-0B1322AE3EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E20B62C-89FF-43AC-ACA7-F813316A63E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E20B62C-89FF-43AC-ACA7-F813316A63E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E20B62C-89FF-43AC-ACA7-F813316A63E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E20B62C-89FF-43AC-ACA7-F813316A63E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3CD44E7-2908-4110-8CE6-CB4E213AB07F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3CD44E7-2908-4110-8CE6-CB4E213AB07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3CD44E7-2908-4110-8CE6-CB4E213AB07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3CD44E7-2908-4110-8CE6-CB4E213AB07F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3886DC50-306E-4BB7-8EB5-04E722AF2DD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3886DC50-306E-4BB7-8EB5-04E722AF2DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3886DC50-306E-4BB7-8EB5-04E722AF2DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3886DC50-306E-4BB7-8EB5-04E722AF2DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37D2792C-F031-4B2D-A57D-AA71EB8E7A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D2792C-F031-4B2D-A57D-AA71EB8E7A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D2792C-F031-4B2D-A57D-AA71EB8E7A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D2792C-F031-4B2D-A57D-AA71EB8E7A37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
