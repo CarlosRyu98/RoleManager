@@ -1,0 +1,22 @@
+# General
+node_modules/
+dist/
+bin/
+obj/
+.vscode/
+.DS_Store
+*.log
+
+# Visual Studio
+*.user
+*.suo
+*.vscode
+.vs/
+
+# Angular
+/frontend/rolemanager-app/node_modules/
+/frontend/rolemanager-app/dist/
+/frontend/rolemanager-app/.angular/
+
+# Configuración de Git
+.gitattributes
