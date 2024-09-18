@@ -16,8 +16,8 @@ public class Campaign
     public string? History { get; set; }
 
     [StringLength(300, ErrorMessage = "Los objetivos no deben superar los 300 caracteres.")]
-
     public List<int>? CharacterIds { get; set; } = new List<int>();
+
     public virtual List<Character>? Characters { get; set; } = new List<Character>();
 
     public List<int>? FactionIds { get; set; } = new List<int>();

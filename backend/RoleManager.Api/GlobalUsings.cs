@@ -1,8 +1,10 @@
-﻿global using System.ComponentModel.DataAnnotations;
-global using Microsoft.EntityFrameworkCore;
-global using RoleManager.Core.Entities;
-global using RoleManager.Infrastructure.Data;
-global using AutoMapper;
+﻿global using AutoMapper;
 global using Microsoft.AspNetCore.Mvc;
+global using RoleManager.Core.Entities;
 global using RoleManager.Core.Interfaces;
+global using RoleManager.Core.Models.Campaign;
 global using RoleManager.Core.Models.Character;
+global using RoleManager.Core.Models.Domain;
+global using RoleManager.Core.Models.Faction;
+global using RoleManager.Core.Models.Location;
+global using RoleManager.Core.Models.Quest;

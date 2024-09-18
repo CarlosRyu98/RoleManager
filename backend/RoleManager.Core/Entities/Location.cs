@@ -20,5 +20,4 @@ public class Location
 
     [Required]
     public int? CampaignId { get; set; } // ID de la campaña a la que pertenece el location
-
 }

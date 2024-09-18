@@ -29,6 +29,7 @@ public class Domain
 
     [StringLength(500, ErrorMessage = "Los objetivos no deben superar los 500 caracteres.")]
     public string? Objectives { get; set; }
+
     [Required]
     public int? CampaignId { get; set; } // ID de la campaña a la que pertenece el dominio
 }

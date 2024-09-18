@@ -10,8 +10,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager.Core", "..\RoleManager.Core\RoleManager.Core.csproj", "{E3CD44E7-2908-4110-8CE6-CB4E213AB07F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager", "RoleManager.csproj", "{3886DC50-306E-4BB7-8EB5-04E722AF2DD4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8E20B62C-89FF-43AC-ACA7-F813316A63E3} = {8E20B62C-89FF-43AC-ACA7-F813316A63E3}
+		{E3CD44E7-2908-4110-8CE6-CB4E213AB07F} = {E3CD44E7-2908-4110-8CE6-CB4E213AB07F}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleManager.Infrastructure", "..\RoleManager.Infrastructure\RoleManager.Infrastructure.csproj", "{37D2792C-F031-4B2D-A57D-AA71EB8E7A37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoleManager.Infrastructure", "..\RoleManager.Infrastructure\RoleManager.Infrastructure.csproj", "{37D2792C-F031-4B2D-A57D-AA71EB8E7A37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

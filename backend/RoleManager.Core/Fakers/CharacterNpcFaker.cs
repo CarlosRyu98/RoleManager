@@ -1,5 +1,4 @@
-﻿
-public class CharacterNpcFaker : Faker<CharacterNpc>
+﻿public class CharacterNpcFaker : Faker<CharacterNpc>
 {
     private readonly string _name;
     private readonly string _sex;

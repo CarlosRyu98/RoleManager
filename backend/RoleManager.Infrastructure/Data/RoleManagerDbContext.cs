@@ -8,6 +8,7 @@ public class RoleManagerDbContext : DbContext
 
     // Entidades
     public DbSet<Campaign> Campaigns { get; set; }
+
     public DbSet<Character> Characters { get; set; }
     public DbSet<CharacterEpic> CharacterEpics { get; set; }
     public DbSet<CharacterNpc> CharacterNpcs { get; set; }
@@ -60,5 +61,26 @@ public class RoleManagerDbContext : DbContext
                 j => j.HasOne<Faction>().WithMany().HasForeignKey("EnemyId"),
                 j => j.HasOne<Faction>().WithMany().HasForeignKey("FactionId")
             );
+
+        // Configuración de la relación entre Character y Faction
+        modelBuilder.Entity<Character>()
+            .HasOne(c => c.Faction)
+            .WithMany(f => f.Members)
+            .HasForeignKey(c => c.FactionId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Configuración de la relación entre Faction y Character
+        modelBuilder.Entity<Faction>()
+            .HasMany(f => f.Members)
+            .WithOne(c => c.Faction)
+            .HasForeignKey(c => c.FactionId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Configuración de la relación entre Leader y Faction
+        modelBuilder.Entity<Faction>()
+            .HasOne(f => f.Leader)
+            .WithOne()
+            .HasForeignKey<Faction>(f => f.LeaderId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

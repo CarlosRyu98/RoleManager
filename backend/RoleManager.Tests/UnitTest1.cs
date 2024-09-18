@@ -5,7 +5,6 @@ namespace RoleManager.Tests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

@@ -49,5 +49,6 @@ public class Character
 
     // Simpatías y rivalidades
     public virtual ICollection<Character>? Allies { get; set; } = new HashSet<Character>();
+
     public virtual ICollection<Character>? Rivals { get; set; } = new HashSet<Character>();
 }
