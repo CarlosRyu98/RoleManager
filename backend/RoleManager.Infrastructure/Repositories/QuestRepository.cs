@@ -20,6 +20,11 @@ public class QuestRepository : IQuestRepository
             .FirstOrDefaultAsync(q => q.QuestId == questId);
     }
 
+    public async Task<IEnumerable<Quest>> GetQuestsByCampaignAsync(int campaignId)
+    {
+        return await _context.Quests.Where(q => q.CampaignId == campaignId).Include(q => q.Stages).ToListAsync();
+    }
+
     public async Task<Quest> CreateQuestAsync(Quest quest)
     {
         _context.Quests.Add(quest);
@@ -52,16 +57,22 @@ public class QuestStageRepository : IQuestStageRepository
         _context = context;
     }
 
+    // Obtener etapas por questId
     public async Task<IEnumerable<QuestStage>> GetStagesByQuestIdAsync(int questId)
     {
-        return await _context.QuestStages.Where(s => s.QuestId == questId).ToListAsync();
+        // Filtrar las etapas relacionadas con una quest específica
+        return await _context.QuestStages
+            .Where(s => s.QuestId == questId) // Filtrado por QuestId
+            .ToListAsync();
     }
 
+    // Obtener etapa por ID
     public async Task<QuestStage?> GetStageByIdAsync(int stageId)
     {
         return await _context.QuestStages.FindAsync(stageId);
     }
 
+    // Crear una nueva etapa
     public async Task<QuestStage> CreateStageAsync(QuestStage stage)
     {
         _context.QuestStages.Add(stage);
@@ -69,12 +80,14 @@ public class QuestStageRepository : IQuestStageRepository
         return stage;
     }
 
+    // Actualizar una etapa
     public async Task<bool> UpdateStageAsync(QuestStage stage)
     {
         _context.QuestStages.Update(stage);
         return await _context.SaveChangesAsync() > 0;
     }
 
+    // Eliminar una etapa
     public async Task<bool> DeleteStageAsync(int stageId)
     {
         var stage = await _context.QuestStages.FindAsync(stageId);

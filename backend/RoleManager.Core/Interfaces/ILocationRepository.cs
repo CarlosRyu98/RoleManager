@@ -6,6 +6,8 @@ public interface ILocationRepository
 
     Task<Location?> GetLocationByIdAsync(int locationId);
 
+    Task<IEnumerable<Location>> GetLocationsByCampaignAsync(int campaignId);
+
     Task<Location> CreateLocationAsync(Location location);
 
     Task<bool> UpdateLocationAsync(Location location);

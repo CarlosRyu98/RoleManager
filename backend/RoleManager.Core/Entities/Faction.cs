@@ -5,6 +5,9 @@ public class Faction
     [Key]
     public int FactionId { get; set; }
 
+    [Required]
+    public int CampaignId { get; set; }
+
     [Required(ErrorMessage = "El nombre de la facción es obligatorio.")]
     [StringLength(100, MinimumLength = 2, ErrorMessage = "El nombre debe tener entre 2 y 100 caracteres.")]
     public string Name { get; set; }

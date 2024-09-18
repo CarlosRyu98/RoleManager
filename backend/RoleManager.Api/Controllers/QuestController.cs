@@ -28,12 +28,19 @@ public class QuestsController : ControllerBase
     public async Task<ActionResult<QuestDto>> GetQuestById(int id)
     {
         var quest = await _questRepository.GetQuestByIdAsync(id);
-        if (quest == null)
-        {
-            return NotFound();
-        }
+        if (quest == null) return NotFound();
 
         return Ok(_mapper.Map<QuestDto>(quest));
+    }
+
+    // GET: api/Quests/campaign/{campaignId}
+    [HttpGet("campaign/{campaignId}")]
+    public async Task<ActionResult<IEnumerable<QuestDto>>> GetQuestsByCampaign(int campaignId)
+    {
+        var quests = await _questRepository.GetQuestsByCampaignAsync(campaignId);
+        if (!quests.Any()) return NotFound();
+
+        return Ok(_mapper.Map<IEnumerable<QuestDto>>(quests));
     }
 
     // POST: api/Quests
@@ -54,7 +61,6 @@ public class QuestsController : ControllerBase
 
         var quest = _mapper.Map<Quest>(questUpdateDto);
         var result = await _questRepository.UpdateQuestAsync(quest);
-
         if (!result) return NotFound();
 
         return NoContent();
@@ -75,6 +81,11 @@ public class QuestsController : ControllerBase
     public async Task<ActionResult<IEnumerable<QuestStageDto>>> GetStagesByQuestId(int questId)
     {
         var stages = await _stageRepository.GetStagesByQuestIdAsync(questId);
+        if (stages == null || !stages.Any())
+        {
+            return NotFound();
+        }
+
         return Ok(_mapper.Map<IEnumerable<QuestStageDto>>(stages));
     }
 

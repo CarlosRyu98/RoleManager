@@ -22,6 +22,20 @@ public class CharacterController : ControllerBase
         return Ok(characterDtos);
     }
 
+    // GET api/character/campaign/{campaignId}
+    [HttpGet("campaign/{campaignId}")]
+    public async Task<ActionResult<IEnumerable<CharacterDto>>> GetCharactersByCampaign(int campaignId)
+    {
+        var characters = await _characterRepository.GetCharactersByCampaignIdAsync(campaignId);
+        if (characters == null || !characters.Any())
+        {
+            return NotFound();
+        }
+
+        var characterDtos = _mapper.Map<IEnumerable<CharacterDto>>(characters);
+        return Ok(characterDtos);
+    }
+
     // GET api/character/{id}
     [HttpGet("{id}")]
     public async Task<ActionResult<CharacterDto>> GetCharacter(int id)

@@ -34,6 +34,19 @@ public class DomainsController : ControllerBase
         return Ok(_mapper.Map<DomainDto>(domain));
     }
 
+    // GET: api/Domains/campaign/{campaignId}
+    [HttpGet("campaign/{campaignId}")]
+    public async Task<ActionResult<IEnumerable<DomainDto>>> GetDomainsByCampaign(int campaignId)
+    {
+        var domains = await _domainRepository.GetDomainsByCampaignAsync(campaignId);
+        if (domains == null || !domains.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(_mapper.Map<IEnumerable<DomainDto>>(domains));
+    }
+
     // POST: api/Domains
     [HttpPost]
     public async Task<ActionResult<DomainDto>> CreateDomain(DomainCreateDto domainCreateDto)

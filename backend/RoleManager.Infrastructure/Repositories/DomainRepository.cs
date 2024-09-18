@@ -23,6 +23,13 @@ public class DomainRepository : IDomainRepository
             .FirstOrDefaultAsync(d => d.DomainId == domainId);
     }
 
+    public async Task<IEnumerable<Domain>> GetDomainsByCampaignAsync(int campaignId)
+    {
+        return await _context.Domains
+            .Where(d => d.CampaignId == campaignId)  // Filtra por CampaignId
+            .ToListAsync();
+    }
+
     public async Task<Domain> CreateDomainAsync(Domain domain)
     {
         _context.Domains.Add(domain);

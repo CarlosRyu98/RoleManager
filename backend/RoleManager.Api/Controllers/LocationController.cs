@@ -34,6 +34,19 @@ public class LocationsController : ControllerBase
         return Ok(_mapper.Map<LocationDto>(location));
     }
 
+    // GET: api/Locations/campaign/{campaignId}
+    [HttpGet("campaign/{campaignId}")]
+    public async Task<ActionResult<IEnumerable<LocationDto>>> GetLocationsByCampaign(int campaignId)
+    {
+        var locations = await _locationRepository.GetLocationsByCampaignAsync(campaignId);
+        if (locations == null || !locations.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(_mapper.Map<IEnumerable<LocationDto>>(locations));
+    }
+
     // POST: api/Locations
     [HttpPost]
     public async Task<ActionResult<LocationDto>> CreateLocation(LocationCreateDto locationCreateDto)

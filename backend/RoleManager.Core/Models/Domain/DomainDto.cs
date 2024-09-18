@@ -4,6 +4,8 @@ public class DomainDto
 {
     public int DomainId { get; set; }
 
+    public int CampaignId { get; set; }
+
     public string Name { get; set; }
 
     public string? Description { get; set; }
@@ -19,6 +21,4 @@ public class DomainDto
     public string? History { get; set; }
 
     public string? Objectives { get; set; }
-
-    public int? CampaignId { get; set; }
 }

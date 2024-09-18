@@ -6,6 +6,8 @@ public interface IQuestRepository
 
     Task<Quest?> GetQuestByIdAsync(int questId);
 
+    Task<IEnumerable<Quest>> GetQuestsByCampaignAsync(int campaignId); // Nuevo método
+
     Task<Quest> CreateQuestAsync(Quest quest);
 
     Task<bool> UpdateQuestAsync(Quest quest);
@@ -15,13 +17,13 @@ public interface IQuestRepository
 
 public interface IQuestStageRepository
 {
-    Task<IEnumerable<QuestStage>> GetStagesByQuestIdAsync(int questId);
+    Task<IEnumerable<QuestStage>> GetStagesByQuestIdAsync(int questId); // Obtener etapas por QuestId
 
-    Task<QuestStage?> GetStageByIdAsync(int stageId);
+    Task<QuestStage?> GetStageByIdAsync(int stageId);  // Obtener etapa por ID
 
-    Task<QuestStage> CreateStageAsync(QuestStage stage);
+    Task<QuestStage> CreateStageAsync(QuestStage stage);  // Crear etapa
 
-    Task<bool> UpdateStageAsync(QuestStage stage);
+    Task<bool> UpdateStageAsync(QuestStage stage);  // Actualizar etapa
 
-    Task<bool> DeleteStageAsync(int stageId);
+    Task<bool> DeleteStageAsync(int stageId);  // Eliminar etapa
 }

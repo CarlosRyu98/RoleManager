@@ -6,6 +6,8 @@ public interface IFactionRepository
 
     Task<Faction?> GetFactionByIdAsync(int factionId);
 
+    Task<IEnumerable<Faction>> GetFactionsByCampaignAsync(int campaignId);
+
     Task<Faction> CreateFactionAsync(Faction faction);
 
     Task<bool> UpdateFactionAsync(Faction faction);

@@ -29,6 +29,17 @@ public class FactionRepository : IFactionRepository
             .FirstOrDefaultAsync(f => f.FactionId == factionId);
     }
 
+    public async Task<IEnumerable<Faction>> GetFactionsByCampaignAsync(int campaignId)
+    {
+        return await _context.Factions
+            .Where(f => f.CampaignId == campaignId) // Filtra por CampaignId
+            .Include(f => f.Members)
+            .Include(f => f.Leader)
+            .Include(f => f.Allies)
+            .Include(f => f.Enemies)
+            .ToListAsync();
+    }
+
     public async Task<Faction> CreateFactionAsync(Faction faction)
     {
         _context.Factions.Add(faction);

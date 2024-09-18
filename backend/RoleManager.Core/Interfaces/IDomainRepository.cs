@@ -6,6 +6,8 @@ public interface IDomainRepository
 
     Task<Domain?> GetDomainByIdAsync(int domainId);
 
+    Task<IEnumerable<Domain>> GetDomainsByCampaignAsync(int campaignId);
+
     Task<Domain> CreateDomainAsync(Domain domain);
 
     Task<bool> UpdateDomainAsync(Domain domain);

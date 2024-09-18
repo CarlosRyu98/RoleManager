@@ -6,6 +6,8 @@ public interface ICharacterRepository
 
     Task<IEnumerable<Character>> GetAllCharactersAsync();
 
+    Task<IEnumerable<Character>> GetCharactersByCampaignIdAsync(int campaignId);
+
     Task AddCharacterAsync(Character character);
 
     Task UpdateCharacterAsync(Character character);

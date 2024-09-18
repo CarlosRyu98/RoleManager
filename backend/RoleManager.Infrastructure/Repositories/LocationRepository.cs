@@ -25,6 +25,15 @@ public class LocationRepository : ILocationRepository
             .FirstOrDefaultAsync(l => l.LocationId == locationId);
     }
 
+    public async Task<IEnumerable<Location>> GetLocationsByCampaignAsync(int campaignId)
+    {
+        return await _context.Locations
+            .Where(l => l.CampaignId == campaignId)
+            .Include(l => l.Domain)
+            .Include(l => l.Characters)
+            .ToListAsync();
+    }
+
     public async Task<Location> CreateLocationAsync(Location location)
     {
         _context.Locations.Add(location);

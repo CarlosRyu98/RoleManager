@@ -34,6 +34,19 @@ public class FactionsController : ControllerBase
         return Ok(_mapper.Map<FactionDto>(faction));
     }
 
+    // GET: api/Factions/campaign/{campaignId}
+    [HttpGet("campaign/{campaignId}")]
+    public async Task<ActionResult<IEnumerable<FactionDto>>> GetFactionsByCampaign(int campaignId)
+    {
+        var factions = await _factionRepository.GetFactionsByCampaignAsync(campaignId);
+        if (factions == null || !factions.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(_mapper.Map<IEnumerable<FactionDto>>(factions));
+    }
+
     // POST: api/Factions
     [HttpPost]
     public async Task<ActionResult<FactionDto>> CreateFaction(FactionCreateDto factionCreateDto)

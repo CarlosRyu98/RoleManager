@@ -25,6 +25,13 @@ public class CharacterRepository : ICharacterRepository
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<Character>> GetCharactersByCampaignIdAsync(int campaignId)
+    {
+        return await _context.Characters
+            .Where(c => c.CampaignId == campaignId)
+            .ToListAsync();
+    }
+
     public async Task AddCharacterAsync(Character character)
     {
         _context.Characters.Add(character);
