@@ -1,6 +1,3 @@
-@RoleManager_HostAddress = http://localhost:5173
-
-GET {{RoleManager_HostAddress}}/weatherforecast/
-Accept: application/json
+@RoleManager_HostAddress = http://localhost:7144
 
 ###

@@ -15,6 +15,7 @@ public class Program
         builder.Services.AddDbContext<RoleManagerDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+        // Repositorios y AutoMapper
         builder.Services.AddScoped<ICampaignRepository, CampaignRepository>();
         builder.Services.AddAutoMapper(typeof(CampaignProfile));
 
@@ -34,6 +35,17 @@ public class Program
         builder.Services.AddScoped<IQuestStageRepository, QuestStageRepository>();
         builder.Services.AddAutoMapper(typeof(QuestProfile));
 
+        // Habilitar CORS
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowLocalhost", policy =>
+            {
+                policy.WithOrigins("http://localhost:4200") // Permitir Angular dev server
+                      .AllowAnyMethod()
+                      .AllowAnyHeader();
+            });
+        });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -44,6 +56,9 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+
+        // Usar CORS
+        app.UseCors("AllowLocalhost");
 
         app.UseAuthorization();
 
