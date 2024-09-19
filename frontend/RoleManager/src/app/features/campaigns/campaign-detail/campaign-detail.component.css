@@ -1,0 +1,26 @@
+.campaign-detail-container {
+  padding: 20px;
+}
+
+.campaign-detail-container h2 {
+  margin-bottom: 15px;
+}
+
+.campaign-detail-container p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.campaign-detail-container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.campaign-detail-container button:hover {
+  background-color: #0056b3;
+}

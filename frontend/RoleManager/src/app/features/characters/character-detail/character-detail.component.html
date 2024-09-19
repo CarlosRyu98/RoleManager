@@ -1,0 +1,74 @@
+<div class="bg-gray-100 px-6 py-8 rounded-lg shadow-lg mx-auto mt-8 w-11/12">
+  <!-- Título -->
+  <h2
+    class="text-3xl font-bold mb-6 text-center p-4 bg-gray-500 text-white rounded-lg shadow-md"
+  >
+    {{ character.name }}
+  </h2>
+
+  <div class="flex flex-col md:flex-row">
+    <!-- Imagen del Personaje -->
+    <div class="md:w-1/3 mb-4 md:mb-0">
+      <img
+        src="https://i.pinimg.com/originals/b1/a1/df/b1a1dfde7e0fa08e15c2f1364af3393c.jpg"
+        alt="{{ character.name }}"
+        class="rounded-lg shadow-md w-full"
+      />
+    </div>
+
+    <!-- Detalles del Personaje -->
+    <div class="md:w-1/3 md:pl-6">
+      <div
+        class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+      >
+        <p><strong>Sexo:</strong> {{ character.sex }}</p>
+        <p><strong>Raza:</strong> {{ character.race }}</p>
+        <p><strong>Estado:</strong> {{ character.status }}</p>
+        <p>
+          <strong>Descripción Física:</strong>
+          {{ character.physicalDescription }}
+        </p>
+        <p><strong>Motivaciones:</strong> {{ character.motivations }}</p>
+        <p>
+          <strong>Rasgos de Personalidad:</strong>
+          {{ character.personalityTraits }}
+        </p>
+        <p><strong>Historia:</strong> {{ character.backstory }}</p>
+        <p>
+          <strong>Inventario:</strong> {{ character.inventory?.join(", ") }}
+        </p>
+        <p><strong>Idiomas:</strong> {{ character.languages?.join(", ") }}</p>
+        <p>
+          <strong>Proficiencias:</strong>
+          {{ character.proficiencies?.join(", ") }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Atributos Épicos (solo si el personaje tiene estos atributos) -->
+    <div class="md:w-1/3 md:pl-6" *ngIf="isCharacterEpic(character)">
+      <div
+        class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+      >
+        <p><strong>Fuerza:</strong> {{ character.strength }}</p>
+        <p><strong>Destreza:</strong> {{ character.dexterity }}</p>
+        <p><strong>Constitución:</strong> {{ character.constitution }}</p>
+        <p><strong>Inteligencia:</strong> {{ character.intelligence }}</p>
+        <p><strong>Sabiduría:</strong> {{ character.wisdom }}</p>
+        <p><strong>Carisma:</strong> {{ character.charisma }}</p>
+        <p><strong>Puntos de vida:</strong> {{ character.hitPoints }}</p>
+        <p><strong>Clase de armadura:</strong> {{ character.armorClass }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón para Volver -->
+  <div class="text-center mt-8">
+    <button
+      (click)="goBack()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+    >
+      Volver
+    </button>
+  </div>
+</div>

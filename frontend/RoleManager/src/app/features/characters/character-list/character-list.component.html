@@ -1,0 +1,66 @@
+<div class="bg-gray-100 px-6 py-8 rounded-lg shadow-lg mx-auto mt-8 w-11/12">
+  <!-- Título -->
+  <h2 class="text-3xl font-bold mb-6 text-center">Lista de Personajes</h2>
+
+  <!-- Contenedor Grid para NPCs y Personajes Épicos -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Sección de Personajes Épicos -->
+    <div>
+      <h3 class="text-2xl font-semibold mb-4 text-center">Personajes Épicos</h3>
+      <div
+        *ngIf="epicCharacters.length > 0; else noEpic"
+        class="grid grid-cols-1 gap-6"
+      >
+        <div
+          *ngFor="let epic of epicCharacters"
+          [routerLink]="[
+            '/campaigns',
+            campaignId,
+            'characters',
+            epic.characterId
+          ]"
+          class="bg-white p-4 rounded-lg shadow-md flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow"
+        >
+          <h4 class="text-xl font-bold text-center mb-2">{{ epic.name }}</h4>
+          <p class="text-gray-700 text-center">{{ epic.backstory }}</p>
+        </div>
+      </div>
+      <ng-template #noEpic>
+        <p class="text-center">No hay personajes épicos disponibles.</p>
+      </ng-template>
+    </div>
+
+    <!-- Sección de NPCs -->
+    <div>
+      <h3 class="text-2xl font-semibold mb-4 text-center">NPCs</h3>
+      <div *ngIf="npcs.length > 0; else noNpcs" class="grid grid-cols-1 gap-6">
+        <div
+          *ngFor="let npc of npcs"
+          [routerLink]="[
+            '/campaigns',
+            campaignId,
+            'characters',
+            npc.characterId
+          ]"
+          class="bg-white p-4 rounded-lg shadow-md flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow"
+        >
+          <h4 class="text-xl font-bold text-center mb-2">{{ npc.name }}</h4>
+          <p class="text-gray-700 text-center">{{ npc.backstory }}</p>
+        </div>
+      </div>
+      <ng-template #noNpcs>
+        <p class="text-center">No hay NPCs disponibles.</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Botón para Volver -->
+  <div class="text-center mt-8">
+    <button
+      (click)="goBack()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+    >
+      Volver
+    </button>
+  </div>
+</div>

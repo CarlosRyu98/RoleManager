@@ -1,0 +1,101 @@
+<div class="bg-gray-100 px-6 py-8 rounded-lg shadow-lg mx-auto mt-8 w-11/12">
+  <!-- Título de la Campaña -->
+  <h2 class="text-3xl font-bold mb-6 text-center">{{ campaign.name }}</h2>
+
+  <!-- Sección de Detalles de la Campaña -->
+  <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+    <h3 class="text-2xl font-semibold mb-4 text-center">
+      Detalles de la Campaña
+    </h3>
+    <p class="text-lg mb-4 text-center">
+      {{ campaign.description }}
+    </p>
+  </div>
+
+  <!-- Contenedor de Secciones en Rejilla -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6"
+  >
+    <!-- Sección de Personajes -->
+    <div
+      class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+    >
+      <h3 class="text-2xl font-semibold mb-4 text-center">Personajes</h3>
+      <p class="text-lg text-center mb-4">
+        Aquí puedes explorar los personajes de la campaña.
+      </p>
+      <div class="text-center">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          (click)="viewDetails('characters')"
+        >
+          Ver Personajes
+        </button>
+      </div>
+    </div>
+
+    <!-- Sección de Facciones -->
+    <div
+      class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+    >
+      <h3 class="text-2xl font-semibold mb-4 text-center">Facciones</h3>
+      <p class="text-lg text-center mb-4">
+        Aquí puedes explorar las facciones de la campaña.
+      </p>
+      <div class="text-center">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          (click)="viewDetails('factions')"
+        >
+          Ver Facciones
+        </button>
+      </div>
+    </div>
+
+    <!-- Sección de Dominios -->
+    <div
+      class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+    >
+      <h3 class="text-2xl font-semibold mb-4 text-center">Dominios</h3>
+      <p class="text-lg text-center mb-4">
+        Aquí puedes explorar los dominios de la campaña.
+      </p>
+      <div class="text-center">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          (click)="viewDetails('domains')"
+        >
+          Ver Dominios
+        </button>
+      </div>
+    </div>
+
+    <!-- Sección de Localizaciones -->
+    <div
+      class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+    >
+      <h3 class="text-2xl font-semibold mb-4 text-center">Localizaciones</h3>
+      <p class="text-lg text-center mb-4">
+        Aquí puedes explorar las localizaciones de la campaña.
+      </p>
+      <div class="text-center">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          (click)="viewDetails('locations')"
+        >
+          Ver Localizaciones
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón Volver -->
+  <div class="text-center mt-6">
+    <button
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+      (click)="goBack()"
+    >
+      Volver a la Lista de Campañas
+    </button>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="bg-gray-100 px-6 py-8 rounded-lg shadow-lg mx-auto mt-8 w-11/12">
+  <!-- Título -->
+  <h2
+    class="text-3xl font-bold mb-6 text-center p-4 bg-gray-500 text-white rounded-lg shadow-md"
+  >
+    {{ domain.name }}
+  </h2>
+
+  <!-- Detalles superiores: descripción, tipo, historia, objetivos -->
+  <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-6">
+    <div
+      class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-white rounded-lg shadow-md border border-gray-300"
+    >
+      <div class="p-2 text-center">
+        <p><strong>Descripción:</strong></p>
+        <p>{{ domain.description }}</p>
+      </div>
+      <div class="p-2 text-center">
+        <p><strong>Tipo:</strong></p>
+        <p>{{ domain.type }}</p>
+      </div>
+      <div class="p-2 text-center">
+        <p><strong>Historia:</strong></p>
+        <p>{{ domain.history }}</p>
+      </div>
+      <div class="p-2 text-center">
+        <p><strong>Objetivos:</strong></p>
+        <p>{{ domain.objectives }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección inferior: personajes, facciones y localizaciones -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <!-- Personajes en el Dominio -->
+    <div
+      class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+    >
+      <h3 class="text-xl font-semibold mb-2">Personajes</h3>
+      <ul class="disc">
+        <li *ngFor="let character of domain.characters">
+          {{ character.name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Facciones en el Dominio -->
+    <div
+      class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+    >
+      <h3 class="text-xl font-semibold mb-2">Facciones</h3>
+      <ul class="disc">
+        <li *ngFor="let faction of domain.factions">{{ faction.name }}</li>
+      </ul>
+    </div>
+
+    <!-- Localizaciones en el Dominio -->
+    <div
+      class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+    >
+      <h3 class="text-xl font-semibold mb-2">Localizaciones</h3>
+      <ul class="disc">
+        <li *ngFor="let location of domain.locations">{{ location.name }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Botón para Volver -->
+  <div class="text-center mt-8">
+    <button
+      (click)="goBack()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+    >
+      Volver
+    </button>
+  </div>
+</div>

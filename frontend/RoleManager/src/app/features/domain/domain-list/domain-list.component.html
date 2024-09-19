@@ -1,0 +1,32 @@
+<div class="bg-gray-100 px-6 py-8 rounded-lg shadow-lg mx-auto mt-8 w-11/12">
+  <!-- Título -->
+  <h2 class="text-3xl font-bold mb-6 text-center">Lista de Dominios</h2>
+
+  <!-- Contenedor Grid para Dominios -->
+  <div class="grid grid-cols-1 gap-8">
+    <!-- Sección de Dominios -->
+    <div *ngIf="domains.length > 0; else noDomains" class="flex flex-col gap-6">
+      <div
+        *ngFor="let domain of domains"
+        [routerLink]="['/campaigns', campaignId, 'domains', domain.id]"
+        class="bg-white p-4 rounded-lg shadow-md flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow"
+      >
+        <h4 class="text-xl font-bold text-center mb-2">{{ domain.name }}</h4>
+        <p class="text-gray-700 text-center">{{ domain.description }}</p>
+      </div>
+    </div>
+    <ng-template #noDomains>
+      <p class="text-center text-gray-500">No hay dominios disponibles.</p>
+    </ng-template>
+  </div>
+
+  <!-- Botón para Volver -->
+  <div class="text-center mt-8">
+    <button
+      (click)="goBack()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+    >
+      Volver
+    </button>
+  </div>
+</div>

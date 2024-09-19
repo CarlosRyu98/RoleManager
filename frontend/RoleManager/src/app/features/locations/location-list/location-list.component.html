@@ -1,0 +1,35 @@
+<div class="bg-gray-100 p-6 rounded-lg shadow-lg mx-auto mt-8 max-w-4xl">
+  <!-- Título -->
+  <h2 class="text-3xl font-bold mb-6 text-center">Lista de Ubicaciones</h2>
+
+  <!-- Contenedor Grid para Ubicaciones -->
+  <div class="grid grid-cols-1 gap-8">
+    <!-- Sección de Ubicaciones -->
+    <div
+      *ngIf="locations.length > 0; else noLocations"
+      class="flex flex-col gap-6"
+    >
+      <div
+        *ngFor="let location of locations"
+        [routerLink]="['/campaigns', campaignId, 'locations', location.id]"
+        class="bg-white p-4 rounded-lg shadow-md flex flex-col justify-between cursor-pointer hover:shadow-lg transition-shadow"
+      >
+        <h4 class="text-xl font-bold text-center mb-2">{{ location.name }}</h4>
+        <p class="text-gray-700 text-center">{{ location.description }}</p>
+      </div>
+    </div>
+    <ng-template #noLocations>
+      <p class="text-center text-gray-500">No hay ubicaciones disponibles.</p>
+    </ng-template>
+  </div>
+
+  <!-- Botón para Volver -->
+  <div class="text-center mt-8">
+    <button
+      (click)="goBack()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+    >
+      Volver
+    </button>
+  </div>
+</div>

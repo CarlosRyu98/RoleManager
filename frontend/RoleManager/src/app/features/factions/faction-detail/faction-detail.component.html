@@ -1,0 +1,77 @@
+<div class="bg-gray-100 px-6 py-8 rounded-lg shadow-lg mx-auto mt-8 w-11/12">
+  <!-- Título -->
+  <h2
+    class="text-3xl font-bold mb-6 text-center p-4 bg-gray-500 text-white rounded-lg shadow-md"
+  >
+    {{ faction.name }}
+  </h2>
+
+  <!-- Detalles superiores: descripción, tipo, historia, objetivos y base de operaciones -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-white rounded-lg shadow-md border border-gray-300"
+    >
+      <div class="p-2 text-center">
+        <p><strong>Descripción:</strong></p>
+        <p>{{ faction.description }}</p>
+      </div>
+      <div class="p-2 text-center">
+        <p><strong>Tipo:</strong></p>
+        <p>{{ faction.type }}</p>
+      </div>
+      <div class="p-2 text-center">
+        <p><strong>Historia:</strong></p>
+        <p>{{ faction.history }}</p>
+      </div>
+      <div class="p-2 text-center">
+        <p><strong>Objetivos:</strong></p>
+        <p>{{ faction.objectives }}</p>
+      </div>
+    </div>
+    <div
+      class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+    >
+      <h3 class="text-xl font-semibold mb-2">Base de Operaciones</h3>
+      <p>{{ faction.base || "No especificada" }}</p>
+    </div>
+  </div>
+
+  <!-- Sección inferior: líder y miembros, facciones aliadas y enemigas -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <!-- Columna de Líder y Miembros -->
+    <div
+      class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+    >
+      <h3 class="text-xl font-semibold mb-2">Líder</h3>
+      <p>{{ faction.leader?.name || "Sin líder definido" }}</p>
+      <h3 class="text-xl font-semibold mb-2">Miembros</h3>
+      <ul class="disc">
+        <li *ngFor="let member of faction.members">{{ member.name }}</li>
+      </ul>
+    </div>
+
+    <!-- Columna de Facciones Aliadas y Enemigas -->
+    <div
+      class="mb-4 p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+    >
+      <h3 class="text-xl font-semibold mb-2">Facciones Aliadas</h3>
+      <ul class="disc">
+        <li *ngFor="let ally of faction.allies">{{ ally.name }}</li>
+      </ul>
+      <h3 class="text-xl font-semibold mb-2">Facciones Enemigas</h3>
+      <ul class="disc">
+        <li *ngFor="let enemy of faction.enemies">{{ enemy.name }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Botón para Volver -->
+  <div class="text-center mt-8">
+    <button
+      (click)="goBack()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+    >
+      Volver
+    </button>
+  </div>
+</div>
