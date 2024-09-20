@@ -52,6 +52,32 @@
         <p class="text-center">No hay NPCs disponibles.</p>
       </ng-template>
     </div>
+
+    <!-- Cuadro para crear nuevo personaje -->
+    <div
+      class="bg-blue-100 p-4 rounded-lg cursor-pointer text-center border-2 border-dashed border-blue-500 flex flex-col items-center"
+      (click)="createNewCharacterEpic()"
+    >
+      <h3 class="text-lg font-semibold text-blue-700 mb-2">
+        Crear Nuevo Personaje Épico
+      </h3>
+      <p class="text-gray-600 mb-4">
+        Haz clic aquí para añadir un nuevo personaje.
+      </p>
+    </div>
+
+    <!-- Cuadro para crear nuevo personaje -->
+    <div
+      class="bg-blue-100 p-4 rounded-lg cursor-pointer text-center border-2 border-dashed border-blue-500 flex flex-col items-center"
+      (click)="createNewCharacterNpc()"
+    >
+      <h3 class="text-lg font-semibold text-blue-700 mb-2">
+        Crear Nuevo Personaje Npc
+      </h3>
+      <p class="text-gray-600 mb-4">
+        Haz clic aquí para añadir un nuevo personaje.
+      </p>
+    </div>
   </div>
 
   <!-- Botón para Volver -->

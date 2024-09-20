@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   Character,
   CharacterNpc,
@@ -42,7 +42,11 @@ export class CharacterListComponent implements OnInit {
   epicCharacters: CharacterEpic[] = [];
   campaignId!: number;
 
-  constructor(private route: ActivatedRoute, private location: Location) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     // Generación de NPCs
@@ -164,6 +168,15 @@ export class CharacterListComponent implements OnInit {
     ];
 
     this.campaignId = +this.route.snapshot.paramMap.get('id')!; // Asegúrate de que el ID sea un número
+  }
+
+  createNewCharacterEpic() {
+    // Navega a la ruta para crear un nuevo personaje
+    this.router.navigate([`/campaigns/${this.campaignId}/characters/new`]);
+  }
+  createNewCharacterNpc() {
+    // Navega a la ruta para crear un nuevo personaje
+    this.router.navigate([`/campaigns/${this.campaignId}/characters/new`]);
   }
 
   // Función para volver atrás

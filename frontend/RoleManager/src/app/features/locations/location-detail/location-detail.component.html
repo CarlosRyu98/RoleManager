@@ -1,3 +1,53 @@
-<p>
-  location-detail works!
-</p>
+<div class="bg-gray-100 px-6 py-8 rounded-lg shadow-lg mx-auto mt-8 max-w-7xl">
+  <!-- Título -->
+  <h2
+    class="text-3xl font-bold mb-6 text-center p-4 bg-gray-500 text-white rounded-lg shadow-md"
+  >
+    {{ location.name }}
+  </h2>
+
+  <!-- Detalles superiores: descripción y dominio -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <div
+      class="p-4 bg-white rounded-lg shadow-md border border-gray-300 flex flex-col justify-center items-center"
+    >
+      <p class="text-center"><strong>Descripción:</strong></p>
+      <p class="text-center">{{ location.description || "No especificada" }}</p>
+    </div>
+    <div
+      class="p-4 bg-white rounded-lg shadow-md border border-gray-300 flex flex-col justify-center items-center"
+    >
+      <p class="text-center"><strong>Dominio:</strong></p>
+      <p class="text-center">
+        {{ location.domain?.name || "Dominio no especificado" }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Sección inferior: personajes en la localización -->
+  <div class="mb-6">
+    <div
+      class="p-4 bg-white rounded-lg shadow-md border border-gray-300 text-center"
+    >
+      <h3 class="text-xl font-semibold mb-4">Personajes en la Localización</h3>
+      <ul class="disc list-inside">
+        <li *ngFor="let character of location.characters">
+          {{ character.name }}
+        </li>
+      </ul>
+      <p *ngIf="!location.characters?.length">
+        No hay personajes en esta localización.
+      </p>
+    </div>
+  </div>
+
+  <!-- Botón para Volver -->
+  <div class="text-center">
+    <button
+      (click)="goBack()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+    >
+      Volver
+    </button>
+  </div>
+</div>

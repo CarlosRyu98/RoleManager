@@ -1,4 +1,4 @@
-import { Domain } from 'domain';
+import { Domain } from './domain.model';
 import { Character } from './campaign.model';
 
 export interface Location {

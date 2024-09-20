@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 // Modelo mock-up de un Dominio
@@ -43,11 +43,20 @@ export class DomainListComponent implements OnInit {
 
   campaignId!: number;
 
-  constructor(private route: ActivatedRoute, private location: Location) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     // Obtener el ID de la campaña de la ruta activa
     this.campaignId = +this.route.snapshot.paramMap.get('id')!; // Asegúrate de que el ID sea un número
+  }
+
+  createNewDomain() {
+    // Navega a la ruta para crear un nuevo dominio
+    this.router.navigate([`/campaigns/${this.campaignId}/domains/new`]);
   }
 
   goBack(): void {
